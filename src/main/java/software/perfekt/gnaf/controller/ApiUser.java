@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import software.perfekt.gnaf.service.UserService;
 
-@RestController
-@RequestMapping(value = "/users")
+/*@RestController
+@RequestMapping(value = "/users")*/
 public class ApiUser {
 
     @Autowired

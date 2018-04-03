@@ -16,6 +16,4 @@ public class GnafApplication {
     public static void main(String[] args) {
         SpringApplication.run(GnafApplication.class, args);
     }
-
-
 }
