@@ -1,5 +1,6 @@
 package software.perfekt.gnaf.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,11 @@ import java.util.Objects;
  * Created by Zloy on 03.04.2018.
  */
 @Service
+@RequiredArgsConstructor
 public class FullAdressServiceImpl implements FullAdressService {
 
-    @Autowired
-    private FullAdressDao fullAdressDao;
+
+    private final FullAdressDao fullAdressDao;
 
     @Transactional
     @Override

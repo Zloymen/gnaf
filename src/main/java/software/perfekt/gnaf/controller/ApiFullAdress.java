@@ -1,5 +1,6 @@
 package software.perfekt.gnaf.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,10 +14,10 @@ import software.perfekt.gnaf.service.FullAdressService;
  */
 @RestController
 @RequestMapping(value = "/address")
+@RequiredArgsConstructor
 public class ApiFullAdress {
 
-    @Autowired
-    private FullAdressService fullAdressService;
+    private final FullAdressService fullAdressService;
 
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = {MediaType.ALL_VALUE}, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody

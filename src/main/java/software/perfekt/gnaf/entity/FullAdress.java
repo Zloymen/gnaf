@@ -1,13 +1,11 @@
 package software.perfekt.gnaf.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Immutable;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *    , address_detail_pid
@@ -28,8 +26,11 @@ public class FullAdress {
     @Column(name = "flat_number")
     private Integer flatNumber;
 
+    @Column(name = "flat_number_suffix")
+    private Integer flatNumberSuffix;
+
     @Column(name = "number_first")
-    private Integer numberFirst;
+    private Integer number;
 
     @Column(name = "street_name")
     private String streetName;
@@ -45,4 +46,28 @@ public class FullAdress {
 
     @Column(name = "postcode")
     private String postcode;
+
+
+    /**
+     * Mr S Tan
+     * 200 Broadway Av
+     * WEST BEACH SA 5024
+     *
+     * select flat_number, flat_number_suffix, number_first, street_name, street_type_code, locality_name, state_abbreviation, postcode from full_adress;
+     */
+
+    @Transient
+    private String display;
+
+    @PostLoad
+    public void postLoad(){
+        this.display = (flatNumber == null ? "" : flatNumber + " ")
+                + (flatNumberSuffix == null ? "" : flatNumberSuffix + " ")
+                + (number == null ? "" : number + " ")
+                + (streetName == null ? "" : streetName + " ")
+                + (streetTypeCode == null ? "" : streetTypeCode + " ")
+                + (locality == null ? "" : locality + " ")
+                + (state == null ? "" : state + " ")
+                + (postcode == null ? "" : postcode);
+    }
 }
