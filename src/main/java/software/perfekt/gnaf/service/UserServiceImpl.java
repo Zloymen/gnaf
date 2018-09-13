@@ -1,16 +1,16 @@
 package software.perfekt.gnaf.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import software.perfekt.gnaf.dao.UserDao;
 import software.perfekt.gnaf.entity.User;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
 
     @Transactional
     @Override

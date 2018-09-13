@@ -1,7 +1,6 @@
 package software.perfekt.gnaf.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +25,7 @@ public class FullAdressServiceImpl implements FullAdressService {
     @Transactional
     @Override
     public Iterable<FullAdress> getAll(){
-        return new ArrayList<>();//fullAdressDao.findAll();
+        return new ArrayList<>();
     }
 
     @Transactional

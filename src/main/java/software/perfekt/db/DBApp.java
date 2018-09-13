@@ -11,11 +11,11 @@ public class DBApp{
 
     private static final Logger LOGGER = LoggerFactory.getLogger("UPDATE DB");
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
 
         Properties properties = new Properties();
 
-        try (InputStream fis = ClassLoader.getSystemClassLoader().getResourceAsStream("app.prop");){
+        try (InputStream fis = ClassLoader.getSystemClassLoader().getResourceAsStream("app.prop")){
 
             properties.load(fis);
 
@@ -23,9 +23,8 @@ public class DBApp{
             final String url = properties.getProperty("db.url");
             final String username = properties.getProperty("db.username");
             final String password = properties.getProperty("db.password");
-            if(url == null )
-                LOGGER.debug("Host " + url);
-            LOGGER.debug("username " + username);
+            if(url != null ) LOGGER.debug("Host {}", url);
+            LOGGER.debug("username {}", username);
             LOGGER.debug("run liquibase");
             Main.run(new String[]{
                     "--logLevel=debug",

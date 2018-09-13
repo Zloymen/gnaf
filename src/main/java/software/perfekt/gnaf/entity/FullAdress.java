@@ -1,9 +1,7 @@
 package software.perfekt.gnaf.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Immutable;
-
 
 import javax.persistence.*;
 
